@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_diaryfood_app/utils/gradient_text.dart';
+import 'package:my_diaryfood_app/views/home_ui.dart';
 
 class SplassScreemUI extends StatefulWidget {
   const SplassScreemUI({super.key});
@@ -14,6 +15,30 @@ class SplassScreemUI extends StatefulWidget {
 }
 
 class _SplassScreemUIState extends State<SplassScreemUI> {
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    // คำสั่งในการหน่วงเวลา เพื่อเปิดไปยังหน้า HomeUI
+
+    Future.delayed(
+      // ระยะเวลาที่หน่วง
+
+      Duration(seconds: 3),
+
+      //พอครบที่กำหนด จะให้เปิดไปหน้า HomeUI
+
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeUI(),
+        ),
+      ),
+    );
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +53,7 @@ class _SplassScreemUIState extends State<SplassScreemUI> {
                   FontAwesomeIcons.bowlFood,
                   size: MediaQuery.of(context).size.width * 0.35,
                   color: Colors.amber,
-                  ),
+                ),
                 Text(
                   'My Diary Food',
                   style: GoogleFonts.kanit(
@@ -60,7 +85,7 @@ class _SplassScreemUIState extends State<SplassScreemUI> {
                 GradientText(
                   'Created by Thanakit DTI-SAU',
                   gradient: LinearGradient(
-                    colors:[
+                    colors: [
                       Colors.blue,
                       Colors.red,
                       Colors.purple,
